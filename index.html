@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <style>
+        body{
+            background-color: #e781b0;
+        }
+        * { box-sizing: border-box; }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            text-align: center; /* Centrar el contenido */
+        }
+        .mySlides {
+            display: none;
+            transition: opacity 1s ease-in-out;
+        }
+        img {
+            width: 70%; /* Reducir el tamaño de las imágenes */
+            margin: auto; /* Centrar las imágenes */
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px; /* Aumentar el tamaño de la fuente */
+            background-color: rgba(85, 100, 190, 0.5); /* Fondo semi-transparente */
+            border-radius: 5px;
+            user-select: none;
+            z-index: 1; /* Asegurar que los botones estén por encima de las imágenes */
+            transform: translateY(-50%); /* Centrar verticalmente */
+        }
+        .next {
+            right: 10px; /* Ajustar la posición a la derecha */
+        }
+        .prev {
+            left: 10px; /* Ajustar la posición a la izquierda */
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(128, 107, 252, 0.8);
+        }
+        .text {
+            background: linear-gradient(to right, #109af0, #f41f82);
+            font-size: 30px;
+            padding: 8px 12px;
+            width: 100%;
+            text-align: center;
+            position: relative; /* Cambiar a posición relativa */
+            margin-bottom: 20px; /* Espacio debajo del encabezado */
+        }
+        .numbertext {
+            background: linear-gradient(to right, #6d21de, #35ec97);
+            font-size: 20px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 0; /* Mover el número a la parte inferior */
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #da3333;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover {
+            background-color: #1fd2d2;
+        }
+        .page-numbers {
+            text-align: center;
+            margin-top: 10px; /* Espacio entre los botones y los números */
+        }
+    </style>
+</head>
+<body>
+    <h1>Carousel Clic Slideshow</h1>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="text">¡Bienvenido a nuestro viaje!</div>
+            <div class="numbertext">1 / 10</div>
+            <img src="./img/inicio 0.jpg" alt="Imagen 0">
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="text">Descubre la hermosa arquitectura de Barcelona.</div>
+            <div class="numbertext">2 / 10</div>
+            <img src="./img/barcelona 1 .jpg" alt="Imagen 1">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="text">Explora la historia y la belleza de Roma.</div>
+            <div class="numbertext">3 / 10</div>
+            <img src="./img/Roma 2 .jpg" alt="Imagen 2">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="text">Constantina, una de las ciudades más antiguas del mundo.</div>
+            <div class="numbertext">4 / 10</div>
+            <img src="./img/canstantina 3.jpg" alt="Imagen 3">
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="text">La Gran Mesquita de Argel, un lugar impresionante.</div>
+            <div class="numbertext">5 / 10</div>
+            <img src="./img/la granmesquita 4.jpg" alt="Imagen 4">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="text">La vibrante ciudad de Londres.</div>
+            <div class="numbertext">6 / 10</div>
+            <img src="./img/londres 5 .jpg" alt="Imagen 5">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="text">La ciudad que nunca duerme: Nueva York.</div>
+            <div class="numbertext">7 / 10</div>
+            <img src="./img/newyork 6 .jpg" alt="Imagen 6">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="text">La modernidad de Tokio.</div>
+            <div class="numbertext">8 / 10</div>
+            <img src="./img/tokyo 7.jpg" alt="Imagen 7">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="text">El romanticismo de París.</div>
+            <div class="numbertext">9 / 10</div>
+            <img src="./img/paris 8 .jpg" alt="Imagen 8">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="text">La capital de Argelia, un lugar lleno de historia.</div>
+            <div class="numbertext">10 / 10</div>
+            <img src="./img/argel 9.jpg" alt="Imagen 9">
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <br>
+
+    <div class="page-numbers" style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+        <span class="dot" onclick="currentSlide(9)"></span>
+        <span class="dot" onclick="currentSlide(10)"></span>
+    </div>
+
+    <script> 
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";  
+            dots[slideIndex - 1].className += " active";
+        }
+
+        // Cambiar automáticamente las imágenes cada 5 segundos
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000);
+    </script>
+</body>
+</html>
